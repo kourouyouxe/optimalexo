@@ -1,0 +1,100 @@
+
+\documentclass[answers]{exam}
+\usepackage[utf8]{inputenc}
+
+% =============== En-tête ===============
+
+% ---- Packages ----
+\usepackage[french]{babel} % pour dire que le texte est en français
+\usepackage[T1]{fontenc} % permet un bel affichage des guillemets français
+\usepackage{enumitem} % pour customizer les listes
+\setlist[itemize]{label=$\bullet$} % changer le style des listes par défaut
+\usepackage{geometry} % pour la marge
+\usepackage{amsmath}
+\usepackage{stmaryrd} % pour les double-crochets pour les entiers
+\usepackage{mathrsfs} % font pour un certain nombre de trucs
+\geometry{hmargin=2.0cm,vmargin=2.0cm} % pour régler la marge comme le par défaut dans Word
+\usepackage{comment} % pour l'environnement "comment"
+\usepackage{graphicx} % pour les tableaux
+\usepackage{amsfonts} % pour call les ensembles avec mathbb
+\usepackage{xcolor} % gérer les couleurs
+\usepackage{xspace} % ajouter des espaces dans les command
+\usepackage{systeme} % pour les systèmes d'équations !
+\usepackage{parskip} % pour gérer les sauts après paragraphes
+\usepackage{fancyhdr} % pour la mise en page %
+\usepackage{lastpage} % pour la numérotation des pages dans l'en-tête %
+
+% Customisation
+
+
+% Gestion des corrigés
+\renewcommand{\solutiontitle}{\noindent\textbf{Solution}\par\noindent}
+
+% ---- Raccourcis symboles ----
+\newcommand{\N}{\mathbb N}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Exp}{\mathcal E}
+\newcommand{\M}{\mathscr M}
+\newcommand{\base}{\mathscr}
+\newcommand{\dbracket}[1]{\llbracket #1 \rrbracket}
+\newcommand{\dbracketinfty}[1]{\llbracket #1, +\infty \llbracket}
+\let\Im\relax
+\DeclareMathOperator{\Im}{Im}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\rg}{rg}
+\DeclareMathOperator{\mat}{mat}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\suit}{\hookrightarrow} % double crochets
+\renewcommand{\t}{\,^t}
+
+% ---- Macros ----
+\newcommand{\sansbold}[1]{\textsf{\textbf{#1}}} % sans serif et en gras
+
+\newcounter{q}
+\setcounter{q}{0}
+\newcounter{sq}
+\setcounter{sq}{0}
+\newcounter{ex} \stepcounter{ex}
+
+% Exercices
+\newenvironment{exercice}{\setcounter{q}{0} \noindent \newline\newline\textsf{\textbf{Exercice \arabic{ex}.}}\newline}{\stepcounter{ex}}
+
+% Questions (plus à jour)
+\begin{comment}
+\newcommand{\q}{\setcounter{sq}{0}\addtocounter{q}{1}\par\noindent\setlength{\leftskip}{10pt}\textsf{\textbf{\arabic{q}.}}\space}
+\newcommand{\sq}{\addtocounter{sq}{1}\par\noindent\setlength{\leftskip}{10pt}\textsf{\textbf{\alph{sq}.}}\space}
+\end{comment}
+
+\newlist{question}{enumerate}{3}
+\setlist[question, 1]{label={\textsf{\textbf{\arabic{questioni}.}}}, parsep=0pt}
+\setlist[question, 2]{label={\textsf{\textbf{\alph{questionii}.}}}, parsep=0pt}
+
+% Mise en page %
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{Page \thepage \, sur \pageref{LastPage}}
+\fancyhead[RE,LO]{Variables aléatoires à densité - Énoncé des exercices}
+
+
+
+% ---- Document ----
+\title{}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{center}
+\textbf{\LARGE Variables aléatoires à densité \  Énoncé des exercices}
+\end{center}
+
+\begin{center}\rule{12cm}{0.3pt}
+\end{center}
+
+\thispagestyle{empty} % pour supprimer le numéro de la page 1%
+
+% Exercice
+\begin{exercice} On définit la fonction suivante : $f: x \mapsto\left\{\begin{array}{ll}0 & \text { si } x \notin]-1,1[ \\ \lambda(x-1) & \text { si } x \in]-1,1[\end{array}\right.$ avec $\lambda \in \mathbb{R}$. \begin{question} \item Déterminer les valeurs de $\lambda$ pour lesquelles $f$ définit une densité de probabilité. \item On considère $X$ une variable aléatoire réelle admettant $f$ pour densité. \begin{question} \item Expliciter la fonction $F$ de répartition de $X$. \item On pose $Y=|X|$. Montrer que $Y$ est une variable à densité et en déterminer une densité. \item On pose $Z=e^X$. Montrer que $Z$ est une variable à densité et en déterminer une densité. \item On pose $W=\displaystyle \frac{1}{1-X}$. Montrer que $W$ est une variable à densité et en déterminer une densité. \end{question} \end{question} \end{exercice}\begin{exercice} Soit $U \rightarrow \mathcal{U}([0,1])$ et $X$ la variable aléatoire réelle définie par $X=\left\lfloor\frac{\ln (U)}{\ln (1-p)}\right\rfloor+1$. Montrer que $X \hookrightarrow \mathcal{G}(p)$. \end{exercice}\begin{exercice} Soit $X$ une variable aléatoire de densité $$ x \mapsto \frac{1}{\ln 2}\left(\frac{1}{1+x}\right) \mathbb{1}_{[0,1]}(x) $$ Montrer que $Y=\frac{1}{X}-\left\lfloor\frac{1}{X}\right\rfloor$ suit la même loi que $X$. \end{exercice}\begin{exercice} On considère la fonction $f$ définie par: $\forall x \in \mathbb{R}, \;f(x)=\frac{1}{2(1+|x|)^2}$. \begin{question} \item Montrer que l'intégrale $\int_0^{+\infty} \frac{1}{(1+x)^2} \text{d}x$ est convergente et donner sa valeur \item \begin{question} \item Montrer que $f$ est paire. \item Montrer que $f$ peut être considérée comme une fonction densité de probabilité. \end{question} Dans la suite, on considère une variable aléatoire $X$, définie sur un espace probabilisé $(\Omega, \mathcal{A}, \mathbb{P})$ admettant $f$ comme densité. On note $F$ la fonction de répartition de $X$. \item On pose $Y=\ln (1+|X|)$ et on admet que $Y$ est une variable aléatoire à densité, elle aussi définie sur l'espace probabilisé $(\Omega, \mathcal{A}, \mathbb{P})$ \begin{question} \item Déterminer $Y(\Omega)$. \item Exprimer la fonction de répartition $G$ de $Y$ à l'aide de $F$. \item En déduire que $Y$ admet pour densité la fonction $g$ définie par : $$ g(x)=\left\{\begin{array}{cc} 2 e^x f\left(e^x-1\right) & \text { si } x \geq 0 \\ 0 & \text { si } x<0 \end{array}\right. $$ \item Montrer enfin que $Y$ suit une loi exponentielle dont on déterminera le paramètre. \end{question} \end{question} \end{exercice}\begin{exercice} Soit $X$ une variable aléatoire à densité admettant une fonction de répartition $F$ strictement croissante sur $\R$. Déterminer la loi de $F(X)$. \end{exercice}
+\end{document}
